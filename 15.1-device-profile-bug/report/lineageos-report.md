@@ -80,6 +80,12 @@ state (or have the UI and service agree on which device is "current"), but I hav
 - AudioFX 2.2.0 (versionCode 20200), Magisk 29
 - Effects: vendor `audio_effects.conf` with the bundle EQ behind `libeffectproxy` (offload disabled)
 
+## Other reports of the same pattern
+
+The reporter also had the identical symptom pattern (no effect after boot, works after opening AudioFX, stops after a
+slider move) on a Samsung Galaxy A70 (SM-A705) running an unofficial LineageOS 18.1 build, years ago. This is
+**from memory and unverified** (the device no longer runs LineageOS), but the faulty line is unchanged on `lineage-18.1`.
+
 ## Limitations / what I have *not* verified
 
 - Reproduced only on this unofficial GSI build of 15.1, which is EOL and not an official build.
