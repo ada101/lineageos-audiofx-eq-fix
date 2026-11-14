@@ -1,0 +1,6 @@
+id=audiofx-prefs-fix
+name=AudioFX device-profile fix
+version=1.0
+versionCode=1
+author=local
+description=Patched LineageOS 15.1 AudioFX: the service reads EQ settings from the same device profile the UI writes (fixes EQ not applying / stopping after a slider change).

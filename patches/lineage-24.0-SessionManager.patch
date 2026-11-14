@@ -1,0 +1,11 @@
+--- a/src/org/lineageos/audiofx/service/SessionManager.java
++++ b/src/org/lineageos/audiofx/service/SessionManager.java
+@@ -149,7 +149,7 @@
+             throw new IllegalStateException("updateBackend must not be called on the UI thread!");
+         }
+ 
+-        final SharedPreferences prefs = mDevicePrefs.getCurrentDevicePrefs();
++        final SharedPreferences prefs = mDevicePrefs.prefsFor(getCurrentDeviceIdentifier());
+ 
+         if (DEBUG) {
+             Log.i(TAG, "+++ updateBackend() called with flags=[" + flags + "], session=[" + session
