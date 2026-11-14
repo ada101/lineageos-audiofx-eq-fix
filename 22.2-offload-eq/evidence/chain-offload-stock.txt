@@ -1,0 +1,8 @@
+# Stock LineageOS 22.2, Twelve playing (offload ON, as shipped)
+# Source: dumpsys media.audio_flinger
+Output thread 0x71c0e9c820, name AudioOut_6D, tid 4335, type 4 (OFFLOAD):
+    5 effects for session 121
+Equalizer: - flags: 00400048 (conn. mode: insert, insert pref: first, volume mgmt: implements control, input mode: not set, output mode: not set, offloadable)
+Dynamic Bass Boost: - flags: 00400248 (conn. mode: insert, insert pref: first, volume mgmt: implements control, device indication: requires updates, input mode: not set, output mode: not set, offloadable)
+Insert Preset Reverb: - flags: 00400048 (conn. mode: insert, insert pref: first, volume mgmt: implements control, input mode: not set, output mode: not set, offloadable)
+Virtualizer: - flags: 00400250 (conn. mode: insert, insert pref: last, volume mgmt: implements control, device indication: requires updates, input mode: not set, output mode: not set, offloadable)

@@ -1,0 +1,7 @@
+# Same device, EQ made software-only via audio_effects.xml (offload still ON)
+Output thread 0x714cb9b760, name AudioOut_1D, tid 5692, type 0 (MIXER):
+    5 effects for session 13065
+Equalizer: - flags: 00000048 (conn. mode: insert, insert pref: first, volume mgmt: implements control, input mode: not set, output mode: not set)
+Dynamic Bass Boost: - flags: 00400248 (conn. mode: insert, insert pref: first, volume mgmt: implements control, device indication: requires updates, input mode: not set, output mode: not set, offloadable)
+Insert Preset Reverb: - flags: 00400048 (conn. mode: insert, insert pref: first, volume mgmt: implements control, input mode: not set, output mode: not set, offloadable)
+Virtualizer: - flags: 00400250 (conn. mode: insert, insert pref: last, volume mgmt: implements control, device indication: requires updates, input mode: not set, output mode: not set, offloadable)
