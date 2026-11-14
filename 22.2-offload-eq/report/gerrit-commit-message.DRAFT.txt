@@ -1,0 +1,22 @@
+DRAFT: rewrite this in your own words before using it. Change-Id is added automatically by Gerrit's commit-msg hook.
+Target repo: LineageOS/android_device_oneplus_msm8998-common, branch lineage-22.2 (or the current branch)
+File: audio/audio_effects.xml   (patch: ../patches/dumpling-audio_effects-sw-equalizer.patch)
+
+------------------------------------------------------------------------
+msm8998-common: audio: Make the equalizer a software-only effect
+
+With the equalizer registered as an effect proxy, AudioFX's equalizer
+has no audible effect on offloaded playback (for example Twelve playing
+an MP3). Bass boost, virtualizer and reverb still work.
+
+Register the software equalizer directly instead. It is not offloadable,
+so the track is played through the mixer while the equalizer is enabled
+and the equalizer works. Offload is used again once AudioFX is off.
+
+Playback goes through the CPU instead of the DSP while the equalizer is
+on, which should cost some battery.
+
+Test: Play an MP3 in Twelve, enable AudioFX with an exaggerated
+      equalizer setting. Equalizer is audible and the output thread is
+      MIXER, instead of OFFLOAD with no effect.
+------------------------------------------------------------------------
