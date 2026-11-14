@@ -68,7 +68,7 @@ current device.
 With this change (patched into the stock 15.1 APK) the effect applies at playback start, after
 opening the app, on every slider move, on/off and on preset changes, across clean reboots, with the
 stock `audio_effects.conf`. Patch files for `lineage-15.1` and `lineage-24.0` and the full
-investigation: <REPO URL>.
+investigation: https://github.com/ada101/lineageos-audiofx-eq-fix.
 
 A more thorough fix would make `DevicePreferenceManager` and `SessionManager` share one device
 state (or have the UI and service agree on which device is "current"), but I haven't attempted that.
