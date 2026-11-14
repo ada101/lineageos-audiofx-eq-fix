@@ -91,8 +91,26 @@ adb reboot                # revert
 
 Then force-close the player and start it again. Verified from a clean boot on the 5T.
 
-Making it permanent on a userdebug build means `adb disable-verity` + remount of `/vendor` and
-replacing `/vendor/etc/audio_effects.xml`; an OTA update will overwrite it. That is not scripted here.
+### Make it permanent (userdebug build with `adb root`; done and verified on the 5T)
+
+```bash
+adb root
+adb pull /vendor/etc/audio_effects.xml audio_effects.xml.orig      # keep this: it is your undo
+# build the modified file the same way try-sw-eq.sh does (equalizer proxy -> plain software effect)
+adb disable-verity            # on the 5T this printed "Data from 'boot' does not look like a vbmeta footer /
+                              # Error setting verity state" but remount worked afterwards
+adb reboot && adb wait-for-device && adb root
+adb remount                   # "Remount succeeded" -> /vendor is now read-write
+adb push audio_effects.xml.new /vendor/etc/audio_effects.xml.new
+adb shell "chmod 644 /vendor/etc/audio_effects.xml.new; chown root:root /vendor/etc/audio_effects.xml.new; \
+           chcon u:object_r:vendor_configs_file:s0 /vendor/etc/audio_effects.xml.new; \
+           mv /vendor/etc/audio_effects.xml.new /vendor/etc/audio_effects.xml; sync"
+adb reboot
+```
+
+After the reboot the modified file is in place with no bind mount (`md5sum` matches, `mount | grep audio_effects` is empty).
+**Undo:** push `audio_effects.xml.orig` back the same way (or flash a new ROM / take an OTA, which overwrites it).
+This needs an unlocked bootloader and a build that allows `adb root`; it will not work on a user build.
 
 ## What this is *not*
 
